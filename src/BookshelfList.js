@@ -10,7 +10,7 @@ function BookshelfList({ bookshelves, books }) {
       </div>
       <div>
         {bookshelves.map(bookshelf => (
-          <Bookshelf key={bookshelf} title={bookshelf} books={books.filter(book => book.bookshelf === bookshelf)} />
+          <Bookshelf key={bookshelf.name} title={bookshelf.displayName} books={books.filter(book => book.bookshelf === bookshelf.name)} />
         ))}
       </div>
       <div className="open-search">
