@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Bookshelf from './Bookshelf'
 
 function BookshelfList({ bookshelves, books }) {
@@ -13,8 +14,7 @@ function BookshelfList({ bookshelves, books }) {
         ))}
       </div>
       <div className="open-search">
-        {/* TODO: replace with link to Add/Search page */}
-        <a onClick={() => {}}>Add a book</a>
+        <Link to='/search'>Add a book</Link>
       </div>
     </div>
   )
