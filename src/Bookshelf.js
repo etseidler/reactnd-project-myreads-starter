@@ -9,7 +9,11 @@ function Bookshelf({ title, books }) {
         <ol className="books-grid">
           {books.map(book => (
             <li key={book.title}>
-              <Book title={book.title} author={book.author} imageURL={book.imageURL} />
+              <Book
+                title={book.title}
+                author={book.author}
+                imageURL={book.imageURL}
+              />
             </li>
           ))}
         </ol>
