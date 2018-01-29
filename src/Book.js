@@ -1,13 +1,13 @@
 import React from 'react'
 import ShelfSelect from './ShelfSelect'
 
-function Book({ title, author, imageURL }) {
+function Book({ id, title, author, imageURL, bookshelf, changeShelf }) {
   return (
     <div className="book">
       <div className="book-top">
         <div className="book-cover" style={{ width: 128, height: 192, backgroundImage: `url(${imageURL})` }}></div>
         <div className="book-shelf-changer">
-          <ShelfSelect />
+          <ShelfSelect changeShelf={changeShelf} bookId={id} bookshelf={bookshelf} />
         </div>
       </div>
       <div className="book-title">{title}</div>

@@ -22,12 +22,30 @@ const bookshelves = [
 ]
 
 class BooksApp extends React.Component {
-  state = {
-    books: []
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      books: []
+    }
+
+    this.changeShelf = this.changeShelf.bind(this)
   }
   componentDidMount() {
     BooksAPI.getAll()
       .then(books => this.setState({ books: normalizeBooks(books) }))
+  }
+  changeShelf(bookId, newShelf) {
+    const bookToUpdate = this.state.books.find(b => b.id === bookId)
+    bookToUpdate.bookshelf = newShelf
+    BooksAPI.update(bookToUpdate, newShelf)
+      .then(() => {
+        const otherBooks = this.state.books
+          .filter(b => b.id !== bookToUpdate.id)
+        this.setState({
+          books: [...otherBooks, bookToUpdate]
+        })
+      })
   }
   render() {
     return (
@@ -37,6 +55,7 @@ class BooksApp extends React.Component {
               <BookshelfList
                 bookshelves={bookshelves}
                 books={this.state.books}
+                changeShelf={this.changeShelf}
               />
             )}
           />
