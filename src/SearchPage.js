@@ -12,7 +12,7 @@ class SearchPage extends Component {
       books: [],
       searchValue: ''
     }
-    this.changeShelf = props.changeShelf.bind(this)
+    this.addToShelf = props.addToShelf.bind(this)
     this.handleSearchInputChange = this.handleSearchInputChange.bind(this)
     // TODO: focus input when transitioning to search page
   }
@@ -52,7 +52,7 @@ class SearchPage extends Component {
                     author={book.author}
                     imageURL={book.imageURL}
                     bookshelf={undefined}
-                    changeShelf={this.props.changeShelf}
+                    changeShelf={this.props.addToShelf}
                     id={book.id}
                   />
                 </li>

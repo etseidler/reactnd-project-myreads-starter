@@ -30,6 +30,8 @@ class BooksApp extends React.Component {
     }
 
     this.changeShelf = this.changeShelf.bind(this)
+    this.addToShelf = this.addToShelf.bind(this)
+    this.normalizeBooks = normalizeBooks.bind(this)
   }
   componentDidMount() {
     BooksAPI.getAll()
@@ -44,6 +46,16 @@ class BooksApp extends React.Component {
           .filter(b => b.id !== bookToUpdate.id)
         this.setState({
           books: [...otherBooks, bookToUpdate]
+        })
+      })
+  }
+  addToShelf(bookId, shelf) {
+    const that = this
+    BooksAPI.update({ id: bookId }, shelf)
+      .then(() => BooksAPI.get(bookId))
+      .then(newBook => {
+        that.setState({
+          books: [...that.state.books, ...that.normalizeBooks([newBook])]
         })
       })
   }
@@ -62,7 +74,7 @@ class BooksApp extends React.Component {
           <Route path='/search'
             render={() => (
               <SearchPage
-                changeShelf={this.changeShelf}
+                addToShelf={this.addToShelf}
               />
             )}
           />
