@@ -14,10 +14,8 @@ class SearchPage extends Component {
     }
     this.moveToShelf = props.moveToShelf.bind(this)
     this.handleSearchInputChange = this.handleSearchInputChange.bind(this)
-    // TODO: focus input when transitioning to search page
   }
   handleSearchInputChange(event) {
-    // TODO: add debounce
     this.setState({ searchValue: event.target.value })
     BooksAPI.search(event.target.value)
       .then(books => this.setState({ books: normalizeBooks(books) }))
@@ -45,8 +43,6 @@ class SearchPage extends Component {
             <ol className="books-grid">
               {this.state.books.map(book => (
                 <li key={book.id}>
-                  {/* TODO: what should bookshelf be set to? */}
-                  {/* TODO: handle changing shelf */}
                   <Book
                     title={book.title}
                     author={book.author}
