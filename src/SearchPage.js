@@ -14,6 +14,7 @@ class SearchPage extends Component {
     }
     this.changeShelf = props.changeShelf.bind(this)
     this.handleSearchInputChange = this.handleSearchInputChange.bind(this)
+    // TODO: focus input when transitioning to search page
   }
   handleSearchInputChange(event) {
     // TODO: add debounce
