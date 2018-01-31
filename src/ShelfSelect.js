@@ -9,12 +9,12 @@ class ShelfSelect extends Component {
     }
 
     this.bookId = this.props.bookId
-    this.changeShelf = this.props.changeShelf
+    this.moveToShelf = this.props.moveToShelf
 
     this.handleChange = this.handleChange.bind(this)
   }
   handleChange(event) {
-    this.changeShelf(this.bookId, event.target.value)
+    this.moveToShelf(this.bookId, event.target.value)
   }
   render() {
     return (

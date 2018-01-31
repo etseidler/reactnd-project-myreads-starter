@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Bookshelf from './Bookshelf'
 
-function BookshelfList({ bookshelves, books, changeShelf }) {
+function BookshelfList({ bookshelves, books, moveToShelf }) {
   return (
     <div className="list-books">
       <div className="list-books-title">
@@ -14,7 +14,7 @@ function BookshelfList({ bookshelves, books, changeShelf }) {
             key={bookshelf.name}
             title={bookshelf.displayName}
             books={books.filter(book => book.bookshelf === bookshelf.name)}
-            changeShelf={changeShelf}
+            moveToShelf={moveToShelf}
           />
         ))}
       </div>

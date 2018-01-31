@@ -67,14 +67,14 @@ class BooksApp extends React.Component {
               <BookshelfList
                 bookshelves={bookshelves}
                 books={this.state.books}
-                changeShelf={this.changeShelf}
+                moveToShelf={this.changeShelf}
               />
             )}
           />
           <Route path='/search'
             render={() => (
               <SearchPage
-                addToShelf={this.addToShelf}
+                moveToShelf={this.addToShelf}
               />
             )}
           />

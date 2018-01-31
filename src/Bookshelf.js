@@ -1,7 +1,7 @@
 import React from 'react'
 import Book from './Book'
 
-function Bookshelf({ title, books, changeShelf }) {
+function Bookshelf({ title, books, moveToShelf }) {
   return (
     <div className="bookshelf">
       <h2 className="bookshelf-title">{title}</h2>
@@ -14,7 +14,7 @@ function Bookshelf({ title, books, changeShelf }) {
                 author={book.author}
                 imageURL={book.imageURL}
                 bookshelf={book.bookshelf}
-                changeShelf={changeShelf}
+                moveToShelf={moveToShelf}
                 id={book.id}
               />
             </li>
