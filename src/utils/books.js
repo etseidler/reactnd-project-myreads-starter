@@ -8,3 +8,7 @@ export const normalizeBooks = (books) => {
     bookshelf: shelf
   }))
 }
+
+export const bookOnAShelf = (books, book) => {
+  return books.find(b => b.id === book.id)
+}
