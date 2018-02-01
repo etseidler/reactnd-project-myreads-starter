@@ -38,13 +38,14 @@ class BooksApp extends React.Component {
       .then(books => this.setState({ books: normalizeBooks(books) }))
   }
   changeShelf(bookId, newShelf) {
+    const that = this
     const bookToUpdate = this.state.books.find(b => b.id === bookId)
     bookToUpdate.bookshelf = newShelf
     BooksAPI.update(bookToUpdate, newShelf)
       .then(() => {
-        const otherBooks = this.state.books
+        const otherBooks = that.state.books
           .filter(b => b.id !== bookToUpdate.id)
-        this.setState({
+        that.setState({
           books: [...otherBooks, bookToUpdate]
         })
       })
