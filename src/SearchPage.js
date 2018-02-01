@@ -23,6 +23,9 @@ class SearchPage extends Component {
       BooksAPI.search(event.target.value)
         .then(books => this.setState({ books: normalizeBooks(books) }))
     }
+    else {
+      this.setState({ books: [] })
+    }
   }
   render() {
     return (
