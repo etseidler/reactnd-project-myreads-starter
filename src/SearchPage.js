@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import Book from './Book'
 import * as BooksAPI from './BooksAPI'
-import { normalizeBooks, bookOnAShelf } from './utils/books'
+import { normalizeBooks, getExistingShelf } from './utils/books'
 
 class SearchPage extends Component {
   constructor(props) {
@@ -15,7 +15,7 @@ class SearchPage extends Component {
     this.addToShelf = props.addToShelf.bind(this)
     this.changeShelf = props.changeShelf.bind(this)
     this.handleSearchInputChange = this.handleSearchInputChange.bind(this)
-    this.bookOnAShelf = bookOnAShelf
+    this.getExistingShelf = getExistingShelf.bind(this)
   }
   handleSearchInputChange(event) {
     this.setState({ searchValue: event.target.value })
@@ -49,12 +49,12 @@ class SearchPage extends Component {
                     title={book.title}
                     author={book.author}
                     imageURL={book.imageURL}
-                    bookshelf={undefined}
-                    moveToShelf={this.bookOnAShelf(this.props.books, book) ? this.props.changeShelf : this.props.addToShelf}
+                    bookshelf={this.getExistingShelf(this.props.books, book) || 'none'}
+                    moveToShelf={!!this.getExistingShelf(this.props.books, book) ? this.props.changeShelf : this.props.addToShelf}
                     id={book.id}
                   />
                 </li>
-              ))}
+              ), this)}
             </ol>
           </div>
         }

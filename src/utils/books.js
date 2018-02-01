@@ -9,6 +9,7 @@ export const normalizeBooks = (books) => {
   }))
 }
 
-export const bookOnAShelf = (books, book) => {
-  return books.find(b => b.id === book.id)
+export const getExistingShelf = (books, book) => {
+  const bookOnShelf = books.find(b => b.id === book.id)
+  return bookOnShelf && bookOnShelf.bookshelf
 }
