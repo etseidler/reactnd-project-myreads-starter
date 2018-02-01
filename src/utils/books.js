@@ -4,7 +4,7 @@ export const normalizeBooks = (books) => {
     id,
     title,
     author: authors ? authors.reduce(multipleAuthorReducer) : 'UNKNOWN',
-    imageURL: imageLinks.thumbnail,
+    imageURL: imageLinks ? imageLinks.thumbnail : '',
     bookshelf: shelf
   }))
 }
