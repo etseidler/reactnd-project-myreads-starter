@@ -25,7 +25,7 @@ class ShelfSelect extends Component {
         <option value="read">Read</option>
         {this.state.bookshelf !== 'none' ?
           <option value="none">None</option> :
-          null
+          <option value="none" disabled>None</option>
         }
       </select>
     )
