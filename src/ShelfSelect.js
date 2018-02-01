@@ -19,7 +19,7 @@ class ShelfSelect extends Component {
   render() {
     return (
       <select onChange={this.handleChange} value={this.state.bookshelf} >
-        <option value="none" disabled>Move to...</option>
+        <option value="disabled" disabled>Move to...</option>
         <option value="currentlyReading">Currently Reading</option>
         <option value="wantToRead">Want to Read</option>
         <option value="read">Read</option>
