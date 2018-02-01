@@ -13,6 +13,11 @@ class ShelfSelect extends Component {
 
     this.handleChange = this.handleChange.bind(this)
   }
+  componentWillReceiveProps({ bookshelf }) {
+    if (bookshelf !== this.state.bookshelf) {
+      this.setState({ bookshelf })
+    }
+  }
   handleChange(event) {
     this.moveToShelf(this.bookId, event.target.value)
   }
