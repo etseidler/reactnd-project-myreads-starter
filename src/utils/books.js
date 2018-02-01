@@ -1,4 +1,7 @@
 export const normalizeBooks = (books) => {
+  if (books.error) {
+    return []
+  }
   const multipleAuthorReducer = (acc, curr) => `${acc} and ${curr}`
   return books.map(({ id, title, authors, imageLinks, shelf }) => ({
     id,
