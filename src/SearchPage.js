@@ -19,8 +19,10 @@ class SearchPage extends Component {
   }
   handleSearchInputChange(event) {
     this.setState({ searchValue: event.target.value })
-    BooksAPI.search(event.target.value)
-      .then(books => this.setState({ books: normalizeBooks(books) }))
+    if (event.target.value) {
+      BooksAPI.search(event.target.value)
+        .then(books => this.setState({ books: normalizeBooks(books) }))
+    }
   }
   render() {
     return (
