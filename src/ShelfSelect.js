@@ -5,21 +5,23 @@ class ShelfSelect extends Component {
     super(props)
 
     this.state = {
-      bookshelf: this.props.bookshelf
+      bookshelf: this.props.bookshelf,
+      moveToShelf: this.props.moveToShelf
     }
 
     this.bookId = this.props.bookId
-    this.moveToShelf = this.props.moveToShelf
-
     this.handleChange = this.handleChange.bind(this)
   }
-  componentWillReceiveProps({ bookshelf }) {
+  componentWillReceiveProps({ bookshelf, moveToShelf }) {
     if (bookshelf !== this.state.bookshelf) {
       this.setState({ bookshelf })
     }
+    if (moveToShelf !== this.state.moveToShelf) {
+      this.setState({ moveToShelf })
+    }
   }
   handleChange(event) {
-    this.moveToShelf(this.bookId, event.target.value)
+    this.state.moveToShelf(this.bookId, event.target.value)
   }
   render() {
     return (
