@@ -1,13 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Bookshelf from './Bookshelf'
+import AppHeader from './AppHeader'
 
 function BookshelfList({ bookshelves, books, moveToShelf }) {
   return (
     <div className="list-books">
-      <div className="list-books-title">
-        <h1>MyReads</h1>
-      </div>
+      <AppHeader />
       <div>
         {bookshelves.map(bookshelf => (
           <Bookshelf
