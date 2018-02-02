@@ -103,6 +103,16 @@ body, .app {
   padding: 80px 10px 20px;
 }
 
+.search-books__no-results,
+.search-books__search-in-progress {
+  font-size: 2em;
+  padding-top: 1em;
+}
+
+.search-books__search-in-progress {
+  color: gray;
+}
+
 /* books grid */
 
 .books-grid {
