@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import { DebounceInput } from 'react-debounce-input'
 import Book from './Book'
 import * as BooksAPI from './BooksAPI'
 import { normalizeBooks, getExistingShelf } from './utils/books'
@@ -77,7 +78,11 @@ class SearchPage extends Component {
               However, remember that the BooksAPI.search method DOES search by title or author. So, don't worry if
               you don't find a specific author or title. Every search is limited by search terms.
             */}
-            <input autoFocus value={this.state.searchValue} onChange={this.handleSearchInputChange} type="text" placeholder="Search by title or author"/>
+            <DebounceInput
+              autoFocus
+              placeholder="Search by title or author"
+              debounceTimeout={400}
+              onChange={this.handleSearchInputChange} />
           </div>
         </div>
         <div className="search-books-results">
