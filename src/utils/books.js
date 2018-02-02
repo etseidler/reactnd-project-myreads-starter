@@ -7,7 +7,7 @@ export const normalizeBooks = (books) => {
     id,
     title,
     author: authors ? authors.reduce(multipleAuthorReducer) : 'UNKNOWN',
-    imageURL: imageLinks ? imageLinks.thumbnail : '',
+    imageURL: imageLinks ? imageLinks.thumbnail : 'http://via.placeholder.com/128x193?text=No%20Cover',
     bookshelf: shelf
   }))
 }
